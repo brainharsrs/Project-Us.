@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<main class="login-wrap" id="loginWrap">
+  <section class="login-card" id="loginCard">
+    <div class="lights" aria-hidden="true">
+      <span class="dot yellow"></span>
+      <span class="dot pink"></span>
+      <span class="dot purple"></span>
+    </div>
+
+    <img src="login-assets/avatar1.png" class="avatar" id="avatarImg" alt="Avatar">
+
+    <h1 id="welcomeTitle">Bem vindo(a)</h1>
+    <p class="subtitle" id="subtitleText">Digite seu nome e senha para desbloquear.</p>
+
+    <div id="credentialsArea" class="credentials-area">
+      <form id="loginForm" autocomplete="off">
+        <label class="field">
+          <span>Nome</span>
+          <input type="text" id="username" placeholder="Seu nome" required>
+        </label>
+
+        <label class="field">
+          <span>Senha</span>
+          <div class="password-box">
+            <input type="password" id="password" placeholder="Sua senha" required>
+            <button type="button" id="togglePassword" class="toggle-password" aria-label="Mostrar senha">
+              <span id="togglePasswordIcon" class="material-symbols-rounded">visibility</span>
+            </button>
+          </div>
+        </label>
+
+        <button type="submit" id="unlockBtn" class="unlock-btn">Desbloquear</button>
+        <p id="statusText" class="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div id="loadingState" class="loading-state" hidden>
+      <div class="loader" aria-hidden="true"></div>
+      <p id="loadingText">Validando seu acesso...</p>
+    </div>
+  </section>
+</main>
+
+<section id="marioScene" class="mario-scene" aria-hidden="true">
+  <div class="mario-bg"></div>
+  <div class="pipe"></div>
+  <div class="hero"></div>
+
+  <div class="scene-ui">
+    <h2>Desbloqueado!</h2>
+    <p>Entrando no menu...</p>
+    <div class="progress"><span id="sceneProgress"></span></div>
+  </div>
+</section>
+
+<script src="login.js"></script>
+</body>
+</html>

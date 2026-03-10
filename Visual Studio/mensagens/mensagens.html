@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mensagens</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body class="messages-page">
+
+<main class="messages-wrap">
+
+<section class="messages-intro">
+  <h1>Mensagens e Quiz</h1>
+  <p>Esta pagina funciona como um quiz romantico com 10 perguntas.</p>
+  <p>Voce desbloqueia cada mensagem quando acerta, e ao concluir as 10 respostas os projetos ficam liberados.</p>
+</section>
+
+<div class="menu messages-menu">
+
+<a href="1/msg1.html" class="link">
+<span class="material-symbols-rounded icon" id="icon1">lock</span>
+<span class="text" id="titulo1">Mensagem 1</span>
+</a>
+
+<a href="2/msg2.html" class="link">
+<span class="material-symbols-rounded icon" id="icon2">lock</span>
+<span class="text" id="titulo2">Mensagem 2</span>
+</a>
+
+<a href="3/msg3.html" class="link">
+<span class="material-symbols-rounded icon" id="icon3">lock</span>
+<span class="text" id="titulo3">Mensagem 3</span>
+</a>
+
+<a href="4/msg4.html" class="link">
+<span class="material-symbols-rounded icon" id="icon4">lock</span>
+<span class="text" id="titulo4">Mensagem 4</span>
+</a>
+
+<a href="5/msg5.html" class="link">
+<span class="material-symbols-rounded icon" id="icon5">lock</span>
+<span class="text" id="titulo5">Mensagem 5</span>
+</a>
+
+<a href="6/msg6.html" class="link">
+<span class="material-symbols-rounded icon" id="icon6">lock</span>
+<span class="text" id="titulo6">Mensagem 6</span>
+</a>
+
+<a href="7/msg7.html" class="link">
+<span class="material-symbols-rounded icon" id="icon7">lock</span>
+<span class="text" id="titulo7">Mensagem 7</span>
+</a>
+
+<a href="8/msg8.html" class="link">
+<span class="material-symbols-rounded icon" id="icon8">lock</span>
+<span class="text" id="titulo8">Mensagem 8</span>
+</a>
+
+<a href="9/msg9.html" class="link">
+<span class="material-symbols-rounded icon" id="icon9">lock</span>
+<span class="text" id="titulo9">Mensagem 9</span>
+</a>
+
+<a href="10/msg10.html" class="link">
+<span class="material-symbols-rounded icon" id="icon10">lock</span>
+<span class="text" id="titulo10">Mensagem 10</span>
+</a>
+
+<a href="../menu.html" class="link exit">
+<span class="material-symbols-rounded icon">logout</span>
+<span class="text">Voltar</span>
+</a>
+
+</div>
+
+</main>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const mensagens = [
+
+{ key:"msg1Respondida", titulo:"O Casamento da Nicole" },
+{ key:"msg2Respondida", titulo:"Nosso Primeiro Assunto" },
+{ key:"msg3Respondida", titulo:"O Primeiro Eu Te Amo" },
+{ key:"msg4Respondida", titulo:"Nossa Musica" },
+{ key:"msg5Respondida", titulo:"Seu Primeiro Apelido" },
+{ key:"msg6Respondida", titulo:"Minha Comida Favorita" },
+{ key:"msg7Respondida", titulo:"Meu Maior Sonho" },
+{ key:"msg8Respondida", titulo:"Algo Que Eu Nao Falo Sempre" },
+{ key:"msg9Respondida", titulo:"Algo Que Voce Percebe" },
+{ key:"msg10Respondida", titulo:"A Pergunta Final" }
+
+];
+
+mensagens.forEach((msg, index)=>{
+
+if(localStorage.getItem(msg.key)){
+
+document.getElementById("titulo"+(index+1)).innerText = msg.titulo;
+document.getElementById("icon"+(index+1)).innerText = "mail";
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

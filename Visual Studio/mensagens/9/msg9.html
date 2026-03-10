@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquivo 09</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/perguntas.css">
+</head>
+
+<body>
+
+<div class="pergunta-box">
+
+<h1>Arquivo 09</h1>
+
+<p class="pergunta">
+Qual é a minha maior insegurança que eu não demonstro, mas você percebe?
+</p>
+
+<form id="formResposta"
+action="https://formsubmit.co/vitinhomine51279@gmail.com"
+method="POST"
+onsubmit="desbloquear()">
+
+<input
+type="text"
+name="Inseguranca"
+placeholder="Digite sua resposta"
+required
+>
+
+<!-- desativa captcha -->
+<input type="hidden" name="_captcha" value="false">
+
+<!-- redireciona direto para a mensagem -->
+<input type="hidden" name="_next" value="http://127.0.0.1:5500/mensagens/9/mensagem9.html">
+
+<button type="submit">
+Confirmar
+</button>
+
+</form>
+
+<a href="mensagem9.html" id="btnMensagem" class="btn-mensagem">
+Ver Mensagem
+</a>
+
+<p id="feedback"></p>
+
+</div>
+
+<script>
+
+function desbloquear(){
+
+if(!localStorage.getItem("msg9Respondida")){
+let progresso = parseInt(localStorage.getItem("mensagensDesbloqueadas")) || 0;
+progresso++;
+localStorage.setItem("mensagensDesbloqueadas", progresso);
+localStorage.setItem("msg9Respondida", "true");
+}
+
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+if(localStorage.getItem("msg9Respondida")){
+document.getElementById("btnMensagem").style.display = "inline-block";
+document.getElementById("feedback").innerText = "Arquivo desbloqueado.";
+}
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #e7e7ef;
+  --green: #3ea751;
+  --green-hover: #2d8e42;
+  --card: #2b2b36;
+  --card-2: #23232e;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.05), transparent 30%),
+    linear-gradient(140deg, #1f2028, #16171f 65%, #101118);
+  overflow: hidden;
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(420px, 92vw);
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.login-card.shake {
+  animation: shake 0.35s ease;
+}
+
+.lights {
+  height: 52px;
+  background: var(--card-2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-right: 16px;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  opacity: 0.95;
+}
+
+.dot.yellow {
+  background: #f1c85f;
+}
+
+.dot.pink {
+  background: #ea569a;
+}
+
+.dot.purple {
+  background: #6756ea;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 22px auto 8px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 6px;
+  color: #b9bfcb;
+}
+
+.credentials-area {
+  display: block;
+}
+
+.credentials-area.hidden {
+  display: none;
+}
+
+form {
+  padding: 20px 20px 16px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field span {
+  font-size: 0.95rem;
+  color: #c2c9d7;
+}
+
+.field input {
+  border: 1px solid #3b3d4b;
+  background: #1f2029;
+  color: #eef1f5;
+  border-radius: 10px;
+  padding: 12px 12px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.field input:focus {
+  border-color: #5a63b8;
+}
+
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #cfd5df;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.toggle-password:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.unlock-btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.12rem;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.unlock-btn:hover {
+  background: var(--green-hover);
+}
+
+.unlock-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  min-height: 24px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #f2b6c9;
+}
+
+.status.success {
+  color: #94f5a8;
+}
+
+.loading-state {
+  display: none;
+  text-align: center;
+  padding: 20px 20px 28px;
+}
+
+.loading-state.visible {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+}
+
+.loading-state p {
+  color: #c7cedd;
+  font-weight: 600;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.18);
+  border-top-color: #7ee595;
+  animation: spin 0.9s linear infinite;
+}
+
+.mario-scene {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+  z-index: 20;
+  background: #000;
+}
+
+.mario-scene.active {
+  opacity: 1;
+}
+
+.mario-bg {
+  position: absolute;
+  inset: 0;
+  background: #050505 url('login-assets/mario-world.gif') repeat-x left bottom;
+  background-size: 900px auto;
+  animation: bgRun 8s linear infinite;
+}
+
+.pipe {
+  position: absolute;
+  right: 7%;
+  bottom: 62px;
+  width: 82px;
+  height: 126px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, #53c86c, #278b41);
+  border: 4px solid #1f5f30;
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero {
+  position: absolute;
+  left: -70px;
+  bottom: 64px;
+  width: 42px;
+  height: 54px;
+  background: linear-gradient(180deg, #f8c08f 20%, #e64f42 20%, #e64f42 55%, #3e57d0 55%, #3e57d0 100%);
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.mario-scene.active .hero {
+  animation: heroRun 4.8s ease-in forwards;
+}
+
+.scene-ui {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(460px, 90vw);
+  text-align: center;
+  background: rgba(16, 17, 24, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.scene-ui h2 {
+  color: #8ef29c;
+  font-size: 1.5rem;
+}
+
+.scene-ui p {
+  margin-top: 4px;
+  color: #dce2ef;
+}
+
+.progress {
+  margin-top: 10px;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.progress span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #6bf08f, #3ea751);
+}
+
+body.fade-out {
+  animation: pageOut 0.7s ease forwards;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes bgRun {
+  from { background-position: left bottom; }
+  to { background-position: -900px bottom; }
+}
+
+@keyframes heroRun {
+  0% {
+    left: -70px;
+    transform: translateY(0);
+  }
+  60% {
+    left: calc(100% - 220px);
+    transform: translateY(0);
+  }
+  74% {
+    left: calc(100% - 185px);
+    transform: translateY(-48px);
+  }
+  100% {
+    left: calc(100% - 130px);
+    transform: translateY(4px) scale(0.9);
+    opacity: 0.05;
+  }
+}
+
+@keyframes pageOut {
+  to {
+    opacity: 0;
+    transform: scale(1.01);
+    filter: blur(3px);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    width: 34px;
+    height: 46px;
+  }
+
+  .pipe {
+    width: 68px;
+    height: 106px;
+  }
+}
