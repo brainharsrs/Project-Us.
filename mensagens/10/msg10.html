@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mensagem 10</title>
+<link rel="stylesheet" href="../css/perguntas.css">
+</head>
+<body class="bg10">
+
+<div class="mensagem-box">
+
+<h1>Mensagem 10 ❤️</h1>
+
+<p style="font-size:20px; margin-bottom:32px;">
+Depois de tudo o que a gente viveu, vive e ainda vai viver...  
+<br><br>
+voce ainda me escolheria todos os dias?
+</p>
+
+<div id="opcoesFinal" style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+
+<button id="btnSim" class="botao-escolha" onclick="respostaSim()">
+SIM 💖
+</button>
+
+<button id="btnNao" class="botao-escolha botao-nao" onclick="respostaNao()">
+Nao 💔
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function desbloquear(){
+    if(!localStorage.getItem("msg10Respondida")){
+        let progresso = parseInt(localStorage.getItem("mensagensDesbloqueadas")) || 0;
+        progresso++;
+        localStorage.setItem("mensagensDesbloqueadas", progresso);
+        localStorage.setItem("msg10Respondida", "true");
+    }
+}
+
+function respostaSim(){
+    sessionStorage.removeItem("msg10SomenteSim");
+    desbloquear();
+    window.location.href = "mensagem10_sim.html";
+}
+
+function respostaNao(){
+    sessionStorage.setItem("msg10SomenteSim", "1");
+    window.location.href = "mensagem10_nao.html";
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+    if(sessionStorage.getItem("msg10SomenteSim") === "1"){
+        const btnNao = document.getElementById("btnNao");
+        if(btnNao){
+            btnNao.style.display = "none";
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>

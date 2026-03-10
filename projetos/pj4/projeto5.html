@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto 4 - Cartao Magico do Amor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="projeto5.css">
+</head>
+<body>
+
+<div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+
+<main class="page">
+  <header class="topbar">
+    <a href="../projetos.html" class="back-link">
+      <span class="material-symbols-rounded">arrow_back</span>
+      <span>Voltar para projetos</span>
+    </a>
+  </header>
+
+  <section class="hero">
+    <h1>Cartao Magico do Amor</h1>
+    <p>Abra o cartao e folheie as paginas com recados especiais.</p>
+  </section>
+
+  <section class="stage">
+    <div class="envelope" aria-hidden="true"></div>
+
+    <article class="card" id="loveCard">
+      <div class="back"></div>
+
+      <div class="front">
+        <div class="f-box">
+          <img src="https://assets.codepen.io/4927073/ValCard.png" alt="Capa do cartao">
+          <button id="openBtn" class="open-btn">Abrir cartao</button>
+        </div>
+      </div>
+
+      <div class="text-container">
+        <div class="page-head">
+          <p id="pageTitle" class="page-title"></p>
+          <p id="pageCounter" class="page-counter"></p>
+        </div>
+
+        <div id="pageBody" class="page-body"></div>
+
+        <div id="dots" class="dots" aria-label="Indicador de paginas"></div>
+
+        <div class="controls">
+          <button id="prevBtn" class="btn">Anterior</button>
+          <button id="nextBtn" class="btn">Proxima</button>
+          <button id="randomBtn" class="btn soft">Frase surpresa</button>
+          <button id="autoBtn" class="btn soft">Auto: Desligado</button>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<script src="projeto5.js"></script>
+</body>
+</html>
+
+

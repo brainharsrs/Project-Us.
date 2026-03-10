@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mensagem 04</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/mensagens.css">
+</head>
+
+<body class="bg4">
+
+<div class="mensagem-box">
+
+  <h1>Nossa Musica</h1>
+
+  <p>
+    Essa musica e muitooo boaaa, alem de linda e romantica, e tem um significado muito especial pra gente.
+    Ela e tipo, a trilha sonora do comeco da nossa historia, sabe? Isso e incrivel.
+  </p>
+
+  <p>
+    Sempre que essa musica tocava em radio, spotify, ou em qualquer lugar, eu automaticamente pensava em voce, aquela vibe de romance,
+    de algo especial, sei laaaa, me lembrava muito voce, ate o dia em que voce me mandou um audio escutando ela na sala de aula, e
+    eu fiquei tipo, uau, voce tambem gosta dessa musica? Detalhe, eu nao tinha te falado absolutamente nada.
+    E foi ali que eu percebi que a gente tinha algo em comum, algo que a gente gostava, e que a gente podia compartilhar.
+  </p>
+
+  <p>
+    Ela marcou o comeco da nossa historia, obvio que tem varias outras que tambem marcaram varias partes da nossa historia, mas essa
+    tem um lugar especial na nossa prateleira.
+  </p>
+
+  <p>
+    Se quiser escutar um pouco dela, so apertar no botao ai que ela vai tocarrr, aproveita o momentooo meu amor.
+  </p>
+
+  <section class="musica-box" aria-label="Musica do casal">
+    <button type="button" id="btnMusicaMsg" class="btn-musica-msg">
+      Tocar Die With A Smile
+    </button>
+
+    <audio id="audioMusica" preload="none">
+      <source src="Die%20With%20a%20Smile.mp3" type="audio/mpeg">
+      Seu navegador nao suporta audio.
+    </audio>
+  </section>
+
+  <a href="../mensagens.html" class="btn-voltar">Voltar</a>
+
+</div>
+
+<script>
+if(!localStorage.getItem("msg4Respondida")){
+  window.location.href = "msg4.html";
+}
+
+const btnMusicaMsg = document.getElementById("btnMusicaMsg");
+const audioMusica = document.getElementById("audioMusica");
+
+btnMusicaMsg.addEventListener("click", async function(){
+  if(audioMusica.paused){
+    try {
+      await audioMusica.play();
+      btnMusicaMsg.innerText = "Pausar musica";
+    } catch (error) {
+      btnMusicaMsg.innerText = "Nao foi possivel tocar";
+      setTimeout(() => {
+        btnMusicaMsg.innerText = "Tocar Die With A Smile";
+      }, 1800);
+    }
+  } else {
+    audioMusica.pause();
+    audioMusica.currentTime = 0;
+    btnMusicaMsg.innerText = "Tocar Die With A Smile";
+  }
+});
+
+audioMusica.addEventListener("ended", function(){
+  btnMusicaMsg.innerText = "Tocar Die With A Smile";
+});
+</script>
+
+</body>
+</html>

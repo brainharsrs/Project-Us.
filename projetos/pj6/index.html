@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 6 - Carta Pixel Apaixonada</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <h1 class="title">Carta Pixel Apaixonada</h1>
+
+        <div class="layout-grid">
+            <div class="compose-section pixel-border">
+                <h2 class="section-title">Escreva sua carta</h2>
+
+                <div class="input-group">
+                    <div class="input-row">
+                        <input type="text" id="inputTo" placeholder="Para: meu amor..." oninput="updatePreview()">
+                    </div>
+                    <div class="input-row">
+                        <input type="text" id="inputFrom" placeholder="De: com carinho..." oninput="updatePreview()">
+                    </div>
+                    <div class="input-row">
+                        <input type="text" id="inputDate" placeholder="Data: ex. 14 de fevereiro" oninput="updatePreview()">
+                    </div>
+                </div>
+
+                <div class="message-input-container">
+                    <textarea id="inputContent" oninput="updatePreview()" placeholder="Escreva aqui sua mensagem de amor..." maxlength="800"></textarea>
+                    <div id="charCounter" class="char-counter">0/800</div>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <div id="letterPreviewArea" class="love-letter-paper">
+                    <span class="heart-decoration heart-top-left">&#10084;</span>
+                    <span class="heart-decoration heart-bottom-right">&#10084;</span>
+
+                    <div class="letter-content">
+                        <div id="previewDate" class="letter-date"></div>
+                        <div id="previewTo" class="letter-to"></div>
+                        <div id="previewContent" class="letter-text"></div>
+                        <div id="previewFrom" class="letter-from">
+                            <p class="closing">Com todo o meu amor,</p>
+                            <p class="signature"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button onclick="exportAsPng()" class="btn-pixel btn-green">
+                        Baixar em PNG
+                    </button>
+                    <button onclick="copyDocumentToClipboard()" class="btn-pixel btn-blue">
+                        Copiar texto
+                    </button>
+                    <button onclick="window.location.href='../projetos.html'" class="btn-pixel btn-red">
+                        Voltar aos projetos
+                    </button>
+                </div>
+
+                <div id="messageBox" class="message-box"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

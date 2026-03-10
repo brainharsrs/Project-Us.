@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Love Calculator 💖</title>
+  <link rel="manifest" href="assets/manifest.json">
+  <meta name="theme-color" content="#ff6b81">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container" aria-labelledby="app-title">
+    <header>
+      <h1 id="app-title">Love Calculator 💖</h1>
+      <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
+    </header>
+
+    <section class="calculator" aria-labelledby="calc-heading">
+      <h2 id="calc-heading">Enter two names</h2>
+      <form id="love-form" autocomplete="off">
+        <label for="nameA">Name A</label>
+        <input id="nameA" name="nameA" type="text" inputmode="text" required aria-required="true" />
+        <label for="nameB">Name B</label>
+        <input id="nameB" name="nameB" type="text" inputmode="text" required aria-required="true" />
+        <button id="calc-btn" type="submit">Calculate Love ❤️</button>
+      </form>
+
+      <div id="result" role="status" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      <p>Fun only — for entertainment. No science involved.</p>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
